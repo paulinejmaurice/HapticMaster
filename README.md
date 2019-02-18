@@ -1,4 +1,4 @@
-# HapticMaster
+# HapticMaster_CupTask
 
 Code for running the Cup Task experiment (https://web.northeastern.edu/actionlab/research/) with the haptic interface HapticMaster.
 
