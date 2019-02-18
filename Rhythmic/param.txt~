@@ -1,0 +1,95 @@
+% File containing all the parameters defining the cup task
+
+% Name of file where results are written (placed in folder "Output": this folder must exist prior to launching the program). 
+% A file is created for each trial in the block, and the number of the trial is appended to the file name (number starts at 0)
+% The file extension is .csv and is added automatically. 
+outputFilename = Pauline 
+
+%%%%%%%%%%%%%%%%%% DISPLAY %%%%%%%%%%%%%%%%%%
+
+% Choose between local display (0) or projector screen (1)
+projector = 1
+
+% Ratio between the distances on screen and the physical distances. All the visual (start to target and cup) are scaled (1 means visual and physical distances are equal)
+% If the scaling factor is big and the screen is small, then some parts of the task won't appear on the screen (they don't "fit" in the screen size)
+visualScalingFactor = 2.
+
+% Whether a sound is played (1) to indicate the start and end of each trial, or not (0)
+sound = 1
+
+
+%%%%%%%%%%%%%%%%%% BLOCK PARAMETERS %%%%%%%%%%%%%%%%%%
+
+% Number of trials in one block
+nbTrials = 20
+
+% To get the best score the task must be completed within this time exactly (going faster or slower means you get less points)
+% The descending timing box on the screen gives you the reference time: you need to end the motion when the timing box exactly overlaps the target box in order to get the best score
+% In seconds
+goalTime = 2.
+
+% Physical distance you want to cover with the HM end-effector, from start to target (distance between centers of both boxes)
+% Along a horizontal line
+% In meters
+startToTargetDistance = 0.5
+
+% Whether each trial starts automatically (1) or starts when a motion of the HM end-effector is detected (0)
+autoStart = 0
+
+% Whether the ball can escape the cup (1) or not (0) when the pendulum angle exceed the cup angle
+ballEscape = 0
+
+% Whether the user chooses the frequency of back and forth motion (1) or whether it is imposed by a metronome (0)
+selfPaced = 0
+
+% Ratio between the size of the target (and start block) and the size of the cup
+% Depending on the width of the block, the user is more or less free to choose the amplitude of motion
+accuracyFactor = 1.3
+
+% Reference height for the Haptic Master (0 corresponds to the center of the HM vertical workspace)
+% Change the value depending on the subjects' stature so that they are comfortable
+% Should not exceed +/- 0.15 m (0.2 m is the limit but it is aviced against working at the limit of the worskpace)
+% In meters
+floorHeight = -0.05
+
+% Amplify the acceleration of the cart (i.e. HM effector) for the cart-pendulum model to make the task harder
+% This does not directly modify the motion of the HM, but the acceleration used in the cart-pendulum equation is acc_model = amplification * real_HM_acc 
+% (so this affects the motion of the pendulum and then the reaction force on the cart)
+% !! This factor seems (to be checked) to make the cart-pendulum system non-physical/unstable
+accelerationAmplification = 1.
+
+%%%%%%%%%%%%%%%%%% PHYSICAL PARAMETRS OF CART-PENDULUM SYSTEM %%%%%%%%%%%%%%%%%%
+
+% Inertia of the HM (related to cart + pendulum mass)
+% Must be >= 2. (HM restriction, see manual)
+% In kg
+inertiaHM = 3.5
+
+% Mass of the ball/pendulum
+% In kg
+pendulumMass = 0.4
+
+% Length of the pendulum, which determines the cup curvature
+% In meters
+pendulumLength = 0.05
+
+% Damping in the pendulum (to be more realistic)
+% In Newton.meters.second
+pendulumDamping = 0.
+
+% Initial angle of the pendulum (position of the ball in the cup)
+% Positive in the counter-clockwise direction
+% In degrees
+pendulumInitialAngle = 0.
+
+% Initial velocity of the pendulum/ball
+% In degrees/second
+pendulumInitialVelocity = 0.
+
+% Angular length of the arc representing the cup. 
+% The cup is symetric wrt verical axis. 
+% The shape of the cup is defined both by arcCup (portion of full circle) and by pendulumLength (curvature)
+% In degrees
+arcCup = 100
+
+

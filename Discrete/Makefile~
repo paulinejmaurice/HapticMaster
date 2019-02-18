@@ -1,0 +1,8 @@
+# Makefile for compiling and linking example 01-Hello-Haptic-World.cpp
+
+x86_64:
+	g++ -g CupTaskDiscrete.cpp display.cpp haptic.cpp model,cpp parseParamFile.cpp -o CupTaskDiscrete -I../include -L../bin -LLinux-default-Release -lHapticAPI-x86_64.0.0.0
+
+
+clean:
+	rm -rf CupTaskDiscrete
